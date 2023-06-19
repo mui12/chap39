@@ -43,11 +43,11 @@
 			<tbody>
 			<c:forEach var="e" items="${list}">
 				<tr>
-					<td align="center"><a href="/board/detail">${e.num}</a></td>
-					<td align="center"><a href="/board/detail">${e.id}</a></td>
-					<td align="center"><a href="/board/detail">${e.subject}</a></td>
-					<td align="center"><a href="/board/detail">${e.created}</a></td>
-					<td align="center"><a href="/board/detail">${e.hitcount}</a></td>
+					<td align="center"><a href="/board/detail?bno=${e.bno}">${e.bno}</a></td>
+					<td align="center"><a href="/board/detail?bno=${e.bno}">${e.id}</a></td>
+					<td align="center"><a href="/board/detail?bno=${e.bno}">${e.subject}</a></td>
+					<td align="center"><a href="/board/detail?bno=${e.bno}">${e.created}</a></td>
+					<td align="center"><a href="/board/detail?bno=${e.bno}">${e.hitcount}</a></td>
 				</tr>
 			</c:forEach>
 			</tbody>

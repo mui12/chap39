@@ -6,17 +6,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
-public interface CreateController<DTO> {
+public interface DeleteController<DTO> {
 	
-	@GetMapping("/create")
-	void create(Model model, HttpServletRequest request);
+	@GetMapping("/delete")
+	void delete(Model model, HttpServletRequest request);
 	
-	@PostMapping("/create")
-	String create(@Valid DTO dto, BindingResult binding, Model model, HttpServletRequest request, RedirectAttributes attr);
-							//바인딩과정 발생에러를 binding객체에 넣어줌 
+	@PostMapping("/delete")
+	String delete(@Valid DTO dto, BindingResult binding, Model model, HttpServletRequest request, RedirectAttributes attr);
 
 }

@@ -45,7 +45,8 @@ public class SecurityConfig {
 			
 			
 			
-			request.anyRequest().authenticated();  
+			request.anyRequest().anonymous();  
+//			request.anyRequest().authenticated();  
 		});
 		
 		http.formLogin(login -> {

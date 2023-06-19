@@ -15,31 +15,16 @@ import com.github.pagehelper.Page;
 public interface BoardMapper {
 	
 	int         countAll();
-	List<User> 	selectUsers(String id);  
-	List<BoardDTO> selectAll();
-	List<BoardDTO> selectAllWithUsers();
-	Page<BoardDTO> selectPage();
-	Page<BoardDTO> selectPageWithUsers();
-	BoardDTO  	    selectByIdWithUser(String id);
+	List<Board> selectAll();
+	List<Board> selectAllWithUsers();
+	Page<Board> selectPage();
+	Page<Board> selectPageWithUsers();
+	Board		selectByBno(Integer key);
+	Board  	    selectByIdWithUser(String id);
 	 
-	
-	@Select("""
-			select *
-				from board
-				where id = #{id}      		
-			""")							
-	Board selectById(@Param("id")int id);
-	
-	@Select("""
-			select *
-				from board
-				where num = #{num}      		
-			""")							
-	Board selectBynum(@Param("num")int num);
-	
-	int insertCountry(BoardDTO board);
-	int updateCountry(BoardDTO board);
-	int delete(int id);
+	int insertBorad(Board board);
+	int updateBoard(Board board);
+	int delete(Integer bno);
 
 
 }

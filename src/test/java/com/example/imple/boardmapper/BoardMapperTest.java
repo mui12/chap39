@@ -13,21 +13,28 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class BoardMapperTest {
 
 	@Autowired
-	BoardMapper boardMapper;
+	BoardMapper mapper;
 	
 	@Autowired
 	ObjectMapper objectMapper;
 	
 	
 	@Test
-	void selectAll() {
-		var count = boardMapper.selectAll();
-		System.out.println("count ="+count);
+	void countAll() {
+		int cnt = mapper.countAll();
+		System.out.println("cnt = " + cnt);
+		assertThat(cnt).isSameAs(5);
 	}
 	
 	@Test
-	void selectBynum() {
-		var board = boardMapper.selectBynum(1);
+	void selectAll() {
+		var list = mapper.selectAll();
+		System.out.println(list);
+	}
+	
+	@Test
+	void selectByBno() {
+		var board = mapper.selectByBno(5);
 		System.out.println(board);
 	}
 	

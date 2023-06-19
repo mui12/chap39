@@ -98,7 +98,7 @@
 							<li><a class="dropdown-item" href="#">대한민국</a></li>
 						</ul></li>
 					<li class="nav-item"><a class="nav-link" href="#">위인</a></li>	
-					<li class="nav-item"><a class="nav-link" href="board/list">게시판</a></li>	
+					<li class="nav-item"><a class="nav-link" href="/board/list">게시판</a></li>	
 					<li class="nav-item"><a class="nav-link" href="#">고객지원</a></li>	
 					<li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>	
 				</ul>

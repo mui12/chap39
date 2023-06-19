@@ -14,11 +14,69 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-<title>게시판.jsp</title>
+<title>detail.jsp</title>
 </head>
 <body>
-	<h1> 디테일
-	</h1>
+	<a href="/">Home</a>
+	<hr>
+
+	<c:choose>
+		<c:when test="${empty param.pageNum}">  
+			<a href="/board/list">/board/list</a>
+
+		</c:when>
+		<c:when test="${not empty param.pageNum}">
+			<a href="/board/page/${param.pageNum}/${param.pageSize}">
+				/board/page/${param.pageNum}/${param.pageSize}</a>
+		</c:when>
+	</c:choose>
+	<hr>
+
+	<section class="container">
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>bno</th>
+					<td>${board.bno}</td>
+				</tr>
+				<tr>
+					<th>id</th>
+					<td>${board.id}</td>
+				</tr>
+				<tr>
+					<th>pwd</th>
+					<td>${board.pwd}</td>
+				</tr>
+				<tr>
+					<th>email</th>
+					<td>${board.email}</td>
+				</tr>
+				<tr>
+					<th>subject</th>
+					<td>${board.subject}</td>
+				</tr>
+				<tr>
+					<th>content</th>
+					<td>${board.content}</td>
+				</tr>
+				<tr>
+					<th>created</th>
+					<td>${board.created}</td>
+				</tr>
+				<tr>
+					<th>hitcount</th>
+					<td>${board.hitcount}</td>
+				</tr>
+				
+			</tbody>
+		</table>
+		<hr>
+		<menu class="btn-group">
+			<a href="/board/update?id=${board.bno}" class="btn btn-secondary">수정</a>
+			<a href="/board/delete?id=${board.bno}" class="btn btn-danger">삭제</a>
+		</menu>
+		<hr>
+	</section>
 	
 	
 </body>

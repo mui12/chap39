@@ -5,9 +5,7 @@
 	<select id="countAll">
 		select count(*) from board
 	</select>
-	<select id="selectUsers">
-		select * from user where id = #{id}
-	</select>
+	
 	<resultMap type="com.example.imple.user.model.User" id="withUsersResultMap">
 		<result property="id" column="id"/>
 	</resultMap>
@@ -32,38 +30,63 @@
 	
 	
 	
-	<select id="selectByNum">
+	<select id="selectByBno">
 		select * 
 		  from  board 
-		  where num = #{num}
+		  where bno = #{bno}
 	</select>
+	
 	<select id="selectByIdWithUser" resultMap="withUsersResultMap">
 		select * from board
 		where id = #{id}
 	</select>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	<!-- 	insert / update / delete -->
+	<insert id="insertBorad">
+		insert into board 
+		values ( board_bno_seq.nextval, 
+				#{id,		jdbcType=VARCHAR}, 
+				#{pwd,  	jdbcType=VARCHAR}, 
+				#{email,	jdbcType=VARCHAR}, 
+				#{subject,	jdbcType=VARCHAR}, 
+				#{content,	jdbcType=VARCHAR}, 
+				#{created,	jdbcType=DATE}, 
+				#{hitcount, jdbcType=INTEGER} 
+				)
+	<selectKey keyProperty="id" resultType="INTEGER" order="AFTER"> select
+		board_bno_seq.currval from dual </selectKey>
+	</insert>
+	
+	<update id="updateBoard"> 
+		update board set id      = #{id,      jdbcType=VARCHAR},
+						 email   = #{email,   jdbcType=VARCHAR}, 
+						 subject = #{subject, jdbcType=VARCHAR}, 
+						 content = #{content, jdbcType=VARCHAR}, 
+		 where bno = #{bno} </update>
+	
+	<delete id="delete"> delete from board where id = #{id} </delete>
 
 
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

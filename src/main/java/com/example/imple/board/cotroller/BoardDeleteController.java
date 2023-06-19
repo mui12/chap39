@@ -11,21 +11,23 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.imple.board.mapper.BoardMapper;
 import com.example.imple.board.model.BoardDTO;
+import com.example.standard.controller.DeleteController;
 import com.example.standard.controller.UpdateController;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @RequestMapping("/board")
 @Slf4j
-public class BoardUpdateController implements UpdateController<BoardDTO> {
+public class BoardDeleteController implements DeleteController<BoardDTO> {
 	
 	@Autowired
 	BoardMapper mapper;
-	
+
 	@Override
-	public void update(Model model, HttpServletRequest request) {
+	public void delete(Model model, HttpServletRequest request) {
 		var error = request.getParameter("error");
 		
 		if(Objects.isNull(error)) {
@@ -33,13 +35,17 @@ public class BoardUpdateController implements UpdateController<BoardDTO> {
 			session.removeAttribute("board");
 			session.removeAttribute("dto");
 		}
-
-	
-	
+		
+		var bno = request.getParameter("bno");
+		if(Objects.nonNull(bno)) {
+			var key = Integer.parseInt(bno);
+			var board = mapper.selectByBno(key);
+			model.addAttribute("board", board);
+		}
 	}
 
 	@Override
-	public String update(BoardDTO dto, BindingResult binding, Model model, HttpServletRequest request,
+	public String delete(@Valid BoardDTO dto, BindingResult binding, Model model, HttpServletRequest request,
 			RedirectAttributes attr) {
 		
 		var session = request.getSession();
@@ -47,12 +53,15 @@ public class BoardUpdateController implements UpdateController<BoardDTO> {
 		session.setAttribute("binding", binding);
 		
 		if (binding.hasErrors()) {
-			return "redirect:/board/update?error";
+			return "redirect:/board/delete?error";
 		}
 		
+		var board = dto.getModel();
+		mapper.delete(board.getBno());
 		
-		return "redirect:/board/list?update";
+		return "redirect:/board/list?delete";
 	}
+	
 
 
 }

@@ -1,7 +1,11 @@
 package com.example.imple.board.model;
 
+import java.time.LocalDate;
+
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
+
+import com.example.standard.model.Modelable;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -15,11 +19,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(staticName = "of")
 @NoArgsConstructor
 @Builder
-public class BoardDTO {
+public class BoardDTO implements Modelable<Board> {
 	
-	@NotNull
 	@Range(min = 1, max = 99999999999L)
-	Long    num;
+	Integer    bno;
 	
 	@NotBlank
 	@Length(max = 15)
@@ -39,9 +42,23 @@ public class BoardDTO {
 	String  content;
 	
 	@PastOrPresent
-	String  created;
+	LocalDate  created;
 	
 	@Range(min = 1, max = 99999999999L)
-	Long hitcount;
+	Integer hitcount;
+
+	@Override
+	public Board getModel() {
+		return Board.builder()
+					.bno(bno)
+					.id(id.trim())
+					.pwd(pwd.trim())
+					.email(email.trim())
+					.subject(subject)
+					.content(content)
+					.created(created)
+					.hitcount(hitcount)
+					.build();
+	}
 
 }
