@@ -5,19 +5,42 @@
 	<select id="countAll">
 		select count(*) from board
 	</select>
+	<select id="selectUsers">
+		select * from user where id = #{id}
+	</select>
+	<resultMap type="com.example.imple.user.model.User" id="withUsersResultMap">
+		<result property="id" column="id"/>
+	</resultMap>
+	
 	
 	
 	<select id="selectAll">
 		select * from board
 	</select>
-
-
+	<select id="selectAllWithUsers" resultMap="withUsersResultMap">
+		select * from board
+	</select>
+	
+	
+	
 	<select id="selectPage">
 		select * from board
 	</select>
-
-
-
+	<select id="selectPageWithUsers" resultMap="withUsersResultMap">
+		select * from board
+	</select>
+	
+	
+	
+	<select id="selectByNum">
+		select * 
+		  from  board 
+		  where num = #{num}
+	</select>
+	<select id="selectByIdWithUser" resultMap="withUsersResultMap">
+		select * from board
+		where id = #{id}
+	</select>
 
 
 

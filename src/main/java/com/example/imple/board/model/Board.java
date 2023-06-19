@@ -1,7 +1,5 @@
 package com.example.imple.board.model;
 
-import java.sql.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,17 +12,13 @@ import lombok.NonNull;
 @Builder
 public class Board {
 	
-	@NonNull Integer num;
-	@NonNull String  id;
-			 String  subject;
-			 String  content;
-			 String  bfile;
-			 Integer reRef;
-			 Integer reLev;
-			 Integer reSeq;
-			 Integer readcount;
-			 Date	 ddate;
-	
-	
-	
+	@NonNull Long    num;
+	@NonNull String	 id;
+	@NonNull String  pwd;
+			 String  email;
+	@NonNull String  subject;
+	@NonNull String  content;
+			 String  created;
+			 Long    hitcount;
+
 }

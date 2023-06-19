@@ -14,46 +14,9 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-<title>.게시판</title>
+<title>.jsp</title>
 </head>
 <body>
-
-	<div id="bbsList">
-		
-		<div id="bbsList_title">
-			게 시 판
-		</div>
-		<div id="bbsList_header">
-			<div id="lieftHeader">
-				<form action="" method="post">
-					<select name="searchKey">
-						<option value="subject">제목</option>
-						<option value="name">작성자</option>
-						<option value="content">내용</option>
-					</select>				
-					<input type="text" name="searchValue"/>				
-					<input type="button" value="검색" onclick="sendIt();" />				
-				</form>
-			</div>
-		</div>
-	
-		<div id="rightHeder">
-			<a href="/board/create"><input type="button" value="글올리기"></a>
-		</div>
-	</div>
-	<div id="bbsList_list">
-		<div>
-			<dl>
-				<dt>번호</dt>			
-				<dt>제목</dt>			
-				<dt>작성자</dt>			
-				<dt>작성일</dt>			
-				<dt>조회수</dt>			
-			</dl>
-		</div>
-	</div>
-
-
 
 </body>
 </html>

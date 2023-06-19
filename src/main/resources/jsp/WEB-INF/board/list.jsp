@@ -26,94 +26,38 @@
 </style>
 </head>
 <body>
-	<h1 class="h1">
-		Board Page
-		<button type="button" class="btn btn-secondary btn-lg">${paging.pageNum}</button>
-	</h1>
-	<hr>
-	<a href="/"><button type="button" class="btn btn-outline-primary">Home</button></a>
-	<hr>
-
-	<c:choose>
-		<c:when test="${empty param.pageNum}">
-			<a href="/board/list">/board/list</a>
-		</c:when>	
-		<c:when test="${not empty param.pageNum }">
-			<a href="/board/page/${param.pageNum}/${param.pageSize}">
-				/board/page/${param.pageNum}/${param.pageSize}
-			</a>
-		</c:when>
-	</c:choose>
  
- 
- 
- 	<!-- 	page table	 -->
- 	<div class="container mt-5">
+	<!-- 	page table	 -->
+ 	<section class="container">
  		<table class="table table-light table-striped table-hover">
 			<thead>
 				<tr align="center">
 					<th>번호</th>
 					<th>아이디</th>
 					<th>제목</th>
-					<th>내용</th>
-					<th>bfile</th>
-					<th>reRef</th>
-					<th>reLev</th>
-					<th>reSeq</th>
+					<th>작성일</th>
 					<th>조회수</th>
-					<th>날짜</th>
 				</tr>
 			</thead>
 			
 			<tbody>
 			<c:forEach var="e" items="${list}">
 				<tr>
-					<td align="center">${e.num}</td>
-					<td align="center"><a href="#">${e.id}</a></td>
-					<td>${e.subject}</td>
-					<td>${e.content}</td>
-					<td>${e.bfile}</td>
-					<td>${e.reRef}</td>
-					<td align="right">${e.reLev}</td>
-					<td align="right">${e.reSeq}</td>
-					<td align="center">${e.readcount}</td>
-					<td align="center">${e.ddate}</td>
+					<td align="center"><a href="/board/detail">${e.num}</a></td>
+					<td align="center"><a href="/board/detail">${e.id}</a></td>
+					<td align="center"><a href="/board/detail">${e.subject}</a></td>
+					<td align="center"><a href="/board/detail">${e.created}</a></td>
+					<td align="center"><a href="/board/detail">${e.hitcount}</a></td>
 				</tr>
 			</c:forEach>
 			</tbody>
 		</table>
-	</div>
+	</section>
 	
-	
-	<!-- 	pagenation	 -->
-	<ul class="pagination justify-content-center" style="margin: 20px 0">
-		<li class="page-item disabled"><a class="page-link"
-			href="/board/list/${paging.navigateFirstPage-1}/${paging.pageSize}">Previous</a></li>
-
-		<c:forEach var="n" items="${paging.navigatepageNums}">
-			<c:choose>
-				<c:when test="${n eq paging.pageNum}">
-					<li class="page-item active"><a
-						href="/board/list/${n}/${paging.pageSize}"
-						class="page-link">${n}</a></li>
-				</c:when>
-				<c:when test="${n ne paging.pageNum}">
-					<li class="page-item       "><a
-						href="/board/list/${n}/${paging.pageSize}"
-						class="page-link">${n}</a></li>
-				</c:when>
-			</c:choose>
-		</c:forEach>
-		<li class="page-item"><a class="page-link"
-			href="/board/list/${paging.navigateLastPage+1}/${paging.pageSize}">Next</a></li>
-	</ul>
-	
-	
-	<!-- 글쓰기 -->
 	<menu class="btn-group">
 			<a href="/board/create" class="btn btn-primary">글쓰기</a>
 	</menu>
-
+	
 </body>
 </html>
 

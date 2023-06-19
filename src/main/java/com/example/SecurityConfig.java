@@ -40,7 +40,7 @@ public class SecurityConfig {
 			request.requestMatchers("/user/create/**").permitAll();   
 			request.requestMatchers("/user/success/**").permitAll();   
 			
-			request.requestMatchers("/board/list").permitAll();   
+			request.requestMatchers("/board/list", "board/page").permitAll();   
 			request.requestMatchers("/information/**").permitAll();   
 			
 			

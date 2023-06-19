@@ -14,12 +14,13 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-<title>.jsp</title>
+<title>게시판.jsp</title>
 </head>
 <body>
-
- <h1> 디 테 일</h1>
-
+	<h1> 디테일
+	</h1>
+	
+	
 </body>
 </html>
 

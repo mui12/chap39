@@ -25,6 +25,12 @@ public class BoardMapperTest {
 		System.out.println("count ="+count);
 	}
 	
+	@Test
+	void selectBynum() {
+		var board = boardMapper.selectBynum(1);
+		System.out.println(board);
+	}
+	
 	
 	
 }

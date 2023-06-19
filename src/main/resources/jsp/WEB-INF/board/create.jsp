@@ -18,8 +18,6 @@
 </head>
 <body>
 
-	<h1> 추 가 </h1>
-
 </body>
 </html>
 

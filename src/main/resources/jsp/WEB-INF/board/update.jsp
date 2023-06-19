@@ -18,7 +18,6 @@
 </head>
 <body>
 
-	<h1> 업 데 이 트 </h1>
 </body>
 </html>
 
