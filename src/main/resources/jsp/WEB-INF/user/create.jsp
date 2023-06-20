@@ -19,6 +19,13 @@
 
 <style>
 
+.back {
+	background-image: url("/img/로그인.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+
 .body {
 	margin: 50px 650px 50px 650px;
 
@@ -88,17 +95,35 @@
 	padding-top: 30px;
 }
 
-.home_img{
-
-	width: 300px;
-	height: 200px;
+.home_img img {
+    border-radius: 200px;
+    max-width: 40%;
+    max-height: 40%;
 	padding: 30px;
+	display: block; 
+    margin: 0 auto; 
+}
+
+.home_img {
+	text-align: right;
 }
 
 .line {
 	padding: 20px;
-	border: 2px solid #F5F5F5;
+	border: 5px solid #F5F5F5;
 	border-radius: 15px;
+}
+
+.footer {
+  height: 5rem;
+  color: #ffffff;
+  background-color: #A9A9A9;
+  font-size: 15px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  padding: 30px;
+  
 }
 
 
@@ -106,7 +131,7 @@
 
 
 </head>
-<body>
+<body class="back">
 	
 	
 	<section class="container mt-4">
@@ -115,7 +140,7 @@
 		<!-- 홈으로 가기 그림 -->
 			<div class="col-sm-6">
 				<div class="container">
-					<a href="/"><img alt="" src="/img/데니태극기.jpg" class="home_img"></a>
+					<a href="/" class="home_img"><img alt="나랏말싸미" src="/img/나랏말싸미.jpg"></a>
 				</div>
 				<form action="/user/create" method="post" class="line">
 					<div class="mb-3 user_img">
@@ -231,7 +256,9 @@
 		</c:forEach>
 	</c:if>
 	
-	
+	<footer class="footer col-sm-12">
+		<p>© 2023 Mui Developer | Design By Mui</p>
+	</footer>
 	
 		
 

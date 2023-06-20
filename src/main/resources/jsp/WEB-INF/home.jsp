@@ -15,32 +15,68 @@
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
  
- 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+
+<!-- Gaegu -->
+<link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+
+
 <title>home.jsp</title>
 <style>
 
-.test{
-	border: 1px solid red;
-
+.back {
+	background: url("img/대례지화이트.jpg");
 }
-
 
 .topback {
 	height: 250px;
-	background: url("img/home.jpg") no-repeat;
+	background: url("img/home_top.jpg") no-repeat;
 	background-position: center;
 	background-size: cover;
 }
 
-.slide-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-    height: 400px;
+.topfont {
+	font-family: 'Gaegu', cursive;
+	font-size: 70px;
+	text-align: center;
+	padding-top: 90px;
+}
+
+.login_box {
+	background-image:url("img/대례지볓빛.jpg");
+	border: 0.2px solid BurlyWood;
+	border-radius: 5px;
+	opacity: 0.7;
+}
+
+.login_box:hover {
+	background-image: url("img/대례지눈.jpg");
+}
+
+.login_font {
+	font-size: 26px;
+	text-align: center;
+	padding: 30px 10px 10px 10px;
+}
+
+.login_button {
+	text-align: center;
+	width: 90%;
+	padding: 10px;
+}
+
+
+.login_create{
+	font-family: 'East Sea Dokdo', cursive;
+	font-size: 25px;
+	text-align: center;
+	text-decoration: none;
+	padding: 30px 10px 10px 10px;
 }
 
 
@@ -55,26 +91,15 @@
 </style>
 
 </head>
-<body>
+<body class="back">
 
 	<div class="container-fluid topback">
 		<div class="row">
 			<div class="col-sm-12">
-
-
+				<h1 class="topfont">나랏말싸미</h1>
 			</div>
 		</div>
 	</div>
-	
-	
-	
-	<div>
-	<sec:authorize access="isAuthenticated()">
-		<sec:authentication property="name" /> 님 환영합니다.
-		<a href="/user/logout">/user/logout</a>
-	</sec:authorize>
-	</div>
-
 	
 	<!--	 메뉴바	 -->
 	<nav class="navbar navbar-expand-sm navbar-light bg-Secondary">
@@ -86,7 +111,7 @@
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse" id="#mynavbar">
+			<div class="collapse navbar-collapse container" id="#mynavbar">
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item">
 						<a class="nav-link" href="/information/testschedule">시험일정</a></li>
@@ -119,85 +144,86 @@
 			</div>
 		</div>
 	</nav>
-	
-	
+
+
 	<div class="container mt-5">
 		<div class="row">
-			<div class=" col-sm-8 test">
-	
-				<!-- 슬라이드 버튼 -->
-				<div id="demo" class="carousel slide" data-bs-ride="carousel">
-			
-					<!-- Indicators/dots -->
-					<div class="carousel-indicators">
-						<button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-						<button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-						<button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-					</div>
-			
-				<!-- 사진 슬라이드쇼 -->
+			<!-- Carousel -->
+			<div id="demo" class="carousel slide col-sm-7" data-bs-ride="carousel">
+
+				<!-- Indicators/dots -->
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#demo" data-bs-slide-to="0"
+						class="active"></button>
+					<button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+					<button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+				</div>
+
+				<!-- The slideshow/carousel -->
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<div class="slide-content">
-							<img src="img/1.jpg" alt="" class="d-block">
-								<div class="carousel-caption">
-								<h3>Los Angeles</h3>
-								<p>We had such a great time in LA!</p>
-							</div>
-						</div>
+						<img src="img/고구려_수렵도.jpg" alt="고구려_수렵도" class="d-block"
+							style="width: 800px; height: 300px;">
+							<p>고구려 수렵도</p>
 					</div>
 					<div class="carousel-item">
-						<div class="slide-content">
-							<img src="img/2.jpg" alt="" class="d-block">
-							<div class="carousel-caption">
-								<h3>Chicago</h3>
-								<p>Thank you, Chicago!</p>
-							</div>
-						</div>
+						<img src="img/작호도.jpg" alt="작호도" class="d-block"
+							style="width: 800px; height: 300px;">
+							<p>작호도</p>
 					</div>
 					<div class="carousel-item">
-						<div class="slide-content">
-								<img src="img/18.jpg" alt="" class="d-block">
-								<div class="carousel-caption">
-									<h3>New York</h3>
-									<p>We love the Big Apple!</p>
-							</div>
-						</div>
+						<img src="img/조선신윤복.jpg" alt="조선신윤복" class="d-block"
+							style="width: 800px; height: 300px;">
+						<p>조선 신윤복</p>
 					</div>
 				</div>
-			
-					<!-- Left and right controls/icons -->
-					<button class="carousel-control-prev" type="button"
-						data-bs-target="#demo" data-bs-slide="prev">
-						<span class="carousel-control-prev-icon"></span>
-					</button>
-					<button class="carousel-control-next" type="button"
-						data-bs-target="#demo" data-bs-slide="next">
-						<span class="carousel-control-next-icon"></span>
-					</button>
-				</div>
+
+				<!-- Left and right controls/icons -->
+				<button class="carousel-control-prev" type="button"
+					data-bs-target="#demo" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon"></span>
+				</button>
+				<button class="carousel-control-next" type="button"
+					data-bs-target="#demo" data-bs-slide="next">
+					<span class="carousel-control-next-icon"></span>
+				</button>
 			</div>
-			
-			
-			
+
+			<div class="col-sm-2"></div>
+
 			<!-- 로그인 -->
 			
-			<div class=" col-sm-4 test">
-				<div class="test">
-					<p>더 안전하고 편리하게 이용하세요</p>
+			<div class=" col-sm-3 login_box">
+				<p class="login_font">더 안전하고 편리하게 이용하세요 :)</p>
+				<div class="container text-center">
 					<sec:authorize access="isAnonymous()">
-					<a href="/user/login"><button>로그인</button></a>
+					<a href="/user/login"><button type="button" class="btn btn-secondary login_button">로그인</button></a>
 					</sec:authorize>
-					<br>
-					<a href="#">아이디 찾기</a>
-					<a href="#">비밀번호 찾기</a>
-					<a href="/user/create">회원가입</a>
+				</div>
+				<br>
+				<div class="login_create">
+				<a href="#">아이디 찾기</a>
+				<a href="#">비밀번호 찾기</a>
+				<a href="/user/create">회원가입</a>
 				</div>
 			</div>
-			
+			<div>
+			<sec:authorize access="isAuthenticated()">
+				<sec:authentication property="name" /> 님 환영합니다.
+				<a href="/user/logout">/user/logout</a>
+			</sec:authorize>
+			</div>
+		
 		</div>
 	</div>
 
+	<div class="container mt-3">
+	  <h3>우리나라 전통 그림</h3>
+	  <p>중국으로부터 유래되어 주로 먹, 안료로종이에 그리는 전통적인 양식의 회화를 동양화 한국화라고 지칭합니다.</p>
+	</div>
+
+			
+	
 
 </body>
 </html>

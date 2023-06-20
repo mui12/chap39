@@ -17,43 +17,66 @@
 <script src="/webjars/jquery/jquery.min.js"></script>
 <title>login.jsp</title>
 <style>
-* {
-	margin: 0;
-	padding: 0;
+
+.back {
+	background: url("/img/로그인.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
-.home_img{
-
-	width: 350px;
-	height: 150px;
+.home_img img {
+    border-radius: 100px;
+    max-width: 20%;
+    max-height: 20%;
+	padding: 30px;
+	display: block; 
+    margin: 0 auto; 
 }
 
 .line {
-	border: 2px solid #F5F5F5;
+	border: 4px solid #F5F5F5;
 	border-radius: 15px;
 }
 
+.padding {
+	padding: 10px;
+}
+
+
+.login_button {
+	text-align: center;
+	width: 100%;
+	padding: 10px;
+}
+
+
 .footer {
-  background-color: #0099cc;
+  height: 5rem;
   color: #ffffff;
+  background-color: #A9A9A9;
+  font-size: 15px;
   text-align: center;
-  font-size: 12px;
-  padding: 15px;
+  position: absolute;
+  bottom: 0;
+  padding: 30px;
+  
 }
 
 
 </style>
 </head>
-<body>
+<body class="back">
 	
 	<!-- 홈으로 가기 그림 -->
 	<div class="container">
-		<a href="/"><img alt="" src="/img/데니태극기.jpg" class="home_img"></a>
+		<a href="/" class="home_img"><img alt="" src="/img/나랏말싸미.jpg"></a>
 	</div>
 
-	<div class="container mt-5 line">
+	<!-- 로그인 -->
+	<div class="container mt-5">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6 line">
 				
 				<!--  로그인 바 -->
 				<ul class="nav nav-tabs nav-justified">
@@ -61,8 +84,8 @@
 							로그인</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-					<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li>
 				</ul>
+				
 				<section class="container">
 					<form action="/user/login" method="post">
 						<div class="form-floating mt-3 mb-3">
@@ -73,18 +96,18 @@
 							<input type="password" class="form-control" name="password" value="${param.password}" placeholder="비밀번호"/>
 							<label>비밀번호</label>
 						</div>
-						<div>
+						<div class="padding">
 							<input class="form-check-input" type="checkbox" name="remember-me"> 
 			            	<label class="form-check-label">로그인 상태 유지</label>
 						</div>
-						<button type="submit" class="btn btn-primary">로그인</button>
+						<div>
+						<button type="submit" class="btn btn-primary login_button">로그인</button>
+						</div>
 					</form>
-					<ul>
-						<li><a>비밀번호 찾기</a></li>
-						<li><a>아이디 찾기</a></li>
-						<li><a href="/user/create">회원가입</a></li>
-					</ul>
 				</section>
+				<div class="padding" >
+					<a> 비밀번호 찾기</a> <a>아이디 찾기</a> <a href="/user/create">회원가입</a>
+				</div>
 			</div>	
 		</div>
 	</div>
@@ -96,13 +119,8 @@
 	</c:if>
 	
 	
-	<footer class="footer">
-		<span>
-			<a>법적고지</a>
-			<a>개인정보 처리방침</a>
-			<a>contact us</a>
-		</span>
-		<p>|대표자: 심은미 |인천광역시 연수구 | 대표전화: 010-</p>
+	<footer class="footer col-sm-12">
+		<p>© 2023 Mui Developer | Design By Mui</p>
 	</footer>
 
 

@@ -49,8 +49,8 @@ public class SecurityConfig {
 								    "/board/success/**",
 								    "/board/delete/**").hasAnyRole("USER","ADMIN");
 			
-//			request.anyRequest().anonymous();  
-			request.anyRequest().authenticated();  
+			request.anyRequest().anonymous();  
+//			request.anyRequest().authenticated();  
 		});
 		
 		http.formLogin(login -> {
