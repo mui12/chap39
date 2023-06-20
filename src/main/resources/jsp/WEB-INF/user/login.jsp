@@ -33,6 +33,15 @@
 	border-radius: 15px;
 }
 
+.footer {
+  background-color: #0099cc;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  padding: 15px;
+}
+
+
 </style>
 </head>
 <body>
@@ -87,15 +96,13 @@
 	</c:if>
 	
 	
-	<footer class="container">
+	<footer class="footer">
 		<span>
 			<a>법적고지</a>
 			<a>개인정보 처리방침</a>
 			<a>contact us</a>
 		</span>
 		<p>|대표자: 심은미 |인천광역시 연수구 | 대표전화: 010-</p>
-		
-		
 	</footer>
 
 

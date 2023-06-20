@@ -40,13 +40,17 @@ public class SecurityConfig {
 			request.requestMatchers("/user/create/**").permitAll();   
 			request.requestMatchers("/user/success/**").permitAll();   
 			
-			request.requestMatchers("/board/list", "board/page").permitAll();   
+			request.requestMatchers("/board/list", "/board/page").permitAll();   
 			request.requestMatchers("/information/**").permitAll();   
 			
+			request.requestMatchers("/board/create/**",
+								    "/board/update/**",
+								    "/board/detail/**",
+								    "/board/success/**",
+								    "/board/delete/**").hasAnyRole("USER","ADMIN");
 			
-			
-			request.anyRequest().anonymous();  
-//			request.anyRequest().authenticated();  
+//			request.anyRequest().anonymous();  
+			request.anyRequest().authenticated();  
 		});
 		
 		http.formLogin(login -> {

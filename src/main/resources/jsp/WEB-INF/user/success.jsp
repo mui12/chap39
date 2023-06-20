@@ -24,6 +24,8 @@
 	<a href="/user/login">/user/login</a>
 	<hr>
 	
+	<p>회원가입이 ${result}하셨습니다.</p>
+	
 	<c:choose>
 		<c:when test="${param.create ne null}"><h1>회원가입 성공</h1></c:when>
 		<c:when test="${param.update ne null}"><h1>개인정보 수정 성공</h1></c:when>

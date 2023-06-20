@@ -46,10 +46,6 @@
 				<label class="form-lable mb-2" for="content">내용<span>*</span></label>			
 				<input class="form-control"    id="content" name="content" placeholder="내용 입력하세요." value="${board.content}"/>
 			</div>				
-			<div class="mb-3">
-				<label class="form-lable mb-2" for="created">"created"</label>			
-				<input class="form-control"    id=""created""    name=""created""    placeholder="작성일을 입력하세요." value="${board.created}"/>
-			</div>		
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</section>

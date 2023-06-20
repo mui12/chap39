@@ -26,8 +26,8 @@
 </style>
 </head>
 <body>
- 
-	<h1 class="h1">
+ 	
+ 	<h1 class="h1">
 		Board Page
 		<button type="button" class="btn btn-secondary btn-lg">${paging.pageNum}</button>
 	</h1>
@@ -51,9 +51,9 @@
 			<tbody class="table-light">
 				<c:forEach var="e" items="${list}">
 					<tr>
-						<td><a href="/board/detail?bno=${e.bno}">${e.bno}</a></td>
-						<td><a href="/board/detail?bno=${e.bno}">${e.id}</a></td>
-						<td><a href="/board/detail?bno=${e.bno}">${e.subject}</a></td>
+						<td>${e.bno}</td>
+						<td>${e.id}</td>
+						<td>${e.subject}</td>
 						<td>${e.created}</td>
 						<td>${e.hitcount}</td>
 					</tr>
@@ -65,18 +65,18 @@
  	<!-- 	pagenation	 -->
 	<ul class="pagination justify-content-center" style="margin: 20px 0">
 		<li class="page-item disabled"><a class="page-link"
-			href="/board/list/${paging.navigateFirstPage-1}/${paging.pageSize}">Previous</a></li>
+			href="/board/page/${paging.navigateFirstPage-1}/${paging.pageSize}">Previous</a></li>
 
 		<c:forEach var="n" items="${paging.navigatepageNums}">
 			<c:choose>
 				<c:when test="${n eq paging.pageNum}">
 					<li class="page-item active"><a
-						href="/board/list/${n}/${paging.pageSize}"
+						href="/board/page/${n}/${paging.pageSize}"
 						class="page-link">${n}</a></li>
 				</c:when>
 				<c:when test="${n ne paging.pageNum}">
 					<li class="page-item       "><a
-						href="/board/link/${n}/${paging.pageSize}"
+						href="/board/page/${n}/${paging.pageSize}"
 						class="page-link">${n}</a></li>
 				</c:when>
 			</c:choose>
@@ -93,8 +93,6 @@
 	<menu class="btn-group">
 			<a href="/board/create" class="btn btn-primary">글쓰기</a>
 	</menu>
-	
-	
 	
 </body>
 </html>

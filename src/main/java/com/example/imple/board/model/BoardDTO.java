@@ -1,6 +1,7 @@
 package com.example.imple.board.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
@@ -8,7 +9,6 @@ import org.hibernate.validator.constraints.Range;
 import com.example.standard.model.Modelable;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,7 +16,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor(staticName = "of")
+@AllArgsConstructor(staticName = "of")   // 생성자
 @NoArgsConstructor
 @Builder
 public class BoardDTO implements Modelable<Board> {

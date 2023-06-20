@@ -1,7 +1,9 @@
 package com.example.imple.board.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 
+import jakarta.validation.constraints.PastOrPresent;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

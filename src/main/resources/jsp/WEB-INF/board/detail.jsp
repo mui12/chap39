@@ -72,8 +72,8 @@
 		</table>
 		<hr>
 		<menu class="btn-group">
-			<a href="/board/update?id=${board.bno}" class="btn btn-secondary">수정</a>
-			<a href="/board/delete?id=${board.bno}" class="btn btn-danger">삭제</a>
+			<a href="/board/update?bno=${board.bno}" class="btn btn-secondary">수정</a>
+			<a href="/board/delete?bno=${board.bno}" class="btn btn-danger">삭제</a>
 		</menu>
 		<hr>
 	</section>

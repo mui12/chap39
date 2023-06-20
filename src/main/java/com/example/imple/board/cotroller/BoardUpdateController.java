@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.imple.board.mapper.BoardMapper;
+import com.example.imple.board.model.Board;
 import com.example.imple.board.model.BoardDTO;
 import com.example.standard.controller.UpdateController;
 
@@ -49,6 +50,9 @@ public class BoardUpdateController implements UpdateController<BoardDTO> {
 		if (binding.hasErrors()) {
 			return "redirect:/board/update?error";
 		}
+		
+		var board = dto.getModel();
+		mapper.updateBoard(board);
 		
 		
 		return "redirect:/board/list?update";

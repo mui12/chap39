@@ -34,12 +34,23 @@
 	background-size: cover;
 }
 
-.slide_img{
-	width: 200px;
-	height: 300px;	
-
+.slide-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 400px;
 }
 
+
+.footer {
+  background-color: #0099cc;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  padding: 15px;
+}
 
 </style>
 
@@ -66,22 +77,21 @@
 
 	
 	<!--	 메뉴바	 -->
-	<nav class="container navbar navbar-expand-sm navbar-light">
+	<nav class="navbar navbar-expand-sm navbar-light bg-Secondary">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="/"> 
 				<img src="img/데니태극기.jpg"  alt="" style="width: 40px;" class="rounded-pill">
 			</a>
 
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#mynavbar">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="#mynavbar">
-				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link" href="/information/testschedule">시험일정</a></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" role="button"
-						data-bs-toggle="dropdown">한국사</a>
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="/information/testschedule">시험일정</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">한국사</a>
 						<ul class="dropdown-menu">
 							<li><h5 class="dropdown-header">고대</h5></li>
 							<li><a class="dropdown-item" href="#">삼국사기</a></li>
@@ -120,33 +130,38 @@
 			
 					<!-- Indicators/dots -->
 					<div class="carousel-indicators">
-						<button type="button" data-bs-target="#demo" data-bs-slide-to="0"
-							class="active"></button>
+						<button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
 						<button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
 						<button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
 					</div>
 			
 				<!-- 사진 슬라이드쇼 -->
-				<div class="carousel-inner slide_img container">
+				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src="img/1.jpg" alt="" class="d-block">
-						<div class="carousel-caption">
-							<h3>Los Angeles</h3>
-							<p>We had such a great time in LA!</p>
+						<div class="slide-content">
+							<img src="img/1.jpg" alt="" class="d-block">
+								<div class="carousel-caption">
+								<h3>Los Angeles</h3>
+								<p>We had such a great time in LA!</p>
+							</div>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img src="img/2.jpg" alt="" class="d-block">
-						<div class="carousel-caption">
-							<h3>Chicago</h3>
-							<p>Thank you, Chicago!</p>
+						<div class="slide-content">
+							<img src="img/2.jpg" alt="" class="d-block">
+							<div class="carousel-caption">
+								<h3>Chicago</h3>
+								<p>Thank you, Chicago!</p>
+							</div>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img src="img/18.jpg" alt="" class="d-block">
-						<div class="carousel-caption">
-							<h3>New York</h3>
-							<p>We love the Big Apple!</p>
+						<div class="slide-content">
+								<img src="img/18.jpg" alt="" class="d-block">
+								<div class="carousel-caption">
+									<h3>New York</h3>
+									<p>We love the Big Apple!</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -176,7 +191,7 @@
 					<br>
 					<a href="#">아이디 찾기</a>
 					<a href="#">비밀번호 찾기</a>
-					<a href="#">회원가입</a>
+					<a href="/user/create">회원가입</a>
 				</div>
 			</div>
 			

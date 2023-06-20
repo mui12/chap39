@@ -16,13 +16,10 @@ public interface BoardMapper {
 	
 	int         countAll();
 	List<Board> selectAll();
-	List<Board> selectAllWithUsers();
 	Page<Board> selectPage();
-	Page<Board> selectPageWithUsers();
 	Board		selectByBno(Integer key);
-	Board  	    selectByIdWithUser(String id);
 	 
-	int insertBorad(Board board);
+	int insertBoard(Board board);
 	int updateBoard(Board board);
 	int delete(Integer bno);
 

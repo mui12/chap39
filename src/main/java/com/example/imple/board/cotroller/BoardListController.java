@@ -24,7 +24,6 @@ public class BoardListController implements ListController, PageableController {
 	
 	@Override
 	public void list(Model model, HttpServletRequest request) {
-		log.trace("list(Model model) called");
 		var list = mapper.selectAll();
 		
 		/* 컨트롤러에서 뷰로 데이터를 전달하기 위한 메서드 ${list}*/
@@ -37,14 +36,14 @@ public class BoardListController implements ListController, PageableController {
 	@Override
 	public String page(int pageNum, int pageSize, Model model) {
 		log.trace("page(int pageNum, int pageSize, Model model) called");
+		
 		PageHelper.startPage(pageNum, pageSize);
 		var list = mapper.selectPage();
 		var paging = PageInfo.of(list, 10);
 		model.addAttribute("list", list);
 		model.addAttribute("paging", paging);
-		log.debug(paging.toString());
 		
-		return "/board/page";
+		return "/board/list";
 	}
 
 }

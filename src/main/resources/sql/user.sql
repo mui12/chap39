@@ -19,7 +19,7 @@ select * from users;
 
 create table user (
     id       VARCHAR2(20) 	NOT NULL,
-    passwird VARCHAR2(20)	NOT NULL,
+    password VARCHAR2(20)	NOT NULL,
     name 	 VARCHAR2(20)   NOT NULL,  
     dob   	 VARCHAR2(8) 	NOT NULL,
     phone    NUMBER()    	NOT NULL,
@@ -30,5 +30,7 @@ create table user (
     
 );
 
+-- python, $2a$10$qVHhayvRFvUvNd7043/mgeJbNj8IpJEa.O0PqLVS8GPIHyyy.NrfC, USER
+-- java, $2a$10$qVHhayvRFvUvNd7043/mgeJbNj8IpJEa.O0PqLVS8GPIHyyy.NrfC, ADMIN
 
 

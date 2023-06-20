@@ -7,7 +7,7 @@
  * board_num_seq sequence
  */
 --drop sequence board_bno_seq;
-create sequence board_bno_seq start with 1;
+create sequence board_bno_seq start with 6;
 
 /*
  * Board

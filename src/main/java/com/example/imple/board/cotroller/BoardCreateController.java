@@ -53,7 +53,7 @@ public class BoardCreateController implements CreateController<BoardDTO>{
 		
 		var board = dto.getModel();
 		try {
-			mapper.insertBorad(board);
+			mapper.insertBoard(board);
 		} catch (MyBatisSystemException e) {
 		    binding.reject("error.insert", "Failed to insert board"); 
 		    return "redirect:/board/success?create"; 

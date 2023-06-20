@@ -6,29 +6,29 @@
 		select count(*) from board
 	</select>
 	
-	<resultMap type="com.example.imple.user.model.User" id="withUsersResultMap">
-		<result property="id" column="id"/>
-	</resultMap>
+	<update id="updateHitcount">
+		UPDATE board
+		   SET hitcount = hitcount + 1
+		 WHERE bno = #{bno}
+	</update>
+	
+	<!-- 글 상세조회 -->
+	<select id="viewDetail" resultType="com.example.imple.board.model.Board" parameterType="int">
+		SELECT * FROM BOARD WHERE bno = #{bno}
+	</select>
 	
 	
 	
 	<select id="selectAll">
-		select * from board
+		select * 
+		  from board
 	</select>
-	<select id="selectAllWithUsers" resultMap="withUsersResultMap">
-		select * from board
-	</select>
-	
-	
 	
 	<select id="selectPage">
-		select * from board
+		select * 
+		  from board
+		 order by bno
 	</select>
-	<select id="selectPageWithUsers" resultMap="withUsersResultMap">
-		select * from board
-	</select>
-	
-	
 	
 	<select id="selectByBno">
 		select * 
@@ -36,13 +36,9 @@
 		  where bno = #{bno}
 	</select>
 	
-	<select id="selectByIdWithUser" resultMap="withUsersResultMap">
-		select * from board
-		where id = #{id}
-	</select>
 
 	<!-- 	insert / update / delete -->
-	<insert id="insertBorad">
+	<insert id="insertBoard">
 		insert into board 
 		values ( board_bno_seq.nextval, 
 				#{id,		jdbcType=VARCHAR}, 
@@ -53,18 +49,21 @@
 				#{created,	jdbcType=DATE}, 
 				#{hitcount, jdbcType=INTEGER} 
 				)
-	<selectKey keyProperty="id" resultType="INTEGER" order="AFTER"> select
+	<selectKey keyProperty="bno" resultType="INTEGER" order="AFTER"> select
 		board_bno_seq.currval from dual </selectKey>
 	</insert>
 	
 	<update id="updateBoard"> 
-		update board set id      = #{id,      jdbcType=VARCHAR},
-						 email   = #{email,   jdbcType=VARCHAR}, 
-						 subject = #{subject, jdbcType=VARCHAR}, 
-						 content = #{content, jdbcType=VARCHAR}, 
-		 where bno = #{bno} </update>
+		update board 
+		   set 
+		   	   id      = #{id,      jdbcType=VARCHAR},
+			   email   = #{email,   jdbcType=VARCHAR}, 
+			   subject = #{subject, jdbcType=VARCHAR}, 
+			   content = #{content, jdbcType=VARCHAR}, 
+		 where bno     = #{bno} 
+	</update>
 	
-	<delete id="delete"> delete from board where id = #{id} </delete>
+	<delete id="delete"> delete from board where bno = #{bno} </delete>
 
 
 </mapper>

@@ -14,9 +14,21 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-<title>.jsp</title>
+<title>success.jsp</title>
+<script type="text/javascript">
+    var result ='${msg}';
+    
+    if(result == '성공'){
+        alert(result+'입니다.');
+    }else{
+        alert(result+'게시판등록 실패입니다.');
+    }
+    
+</script>
 </head>
 <body>
+
+<p>회원가입이 ${result}하셨습니다.</p>
 
 </body>
 </html>

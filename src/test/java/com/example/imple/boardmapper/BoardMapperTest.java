@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.imple.board.mapper.BoardMapper;
+import com.example.imple.board.model.Board;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.pagehelper.PageHelper;
 
 @SpringBootTest
 public class BoardMapperTest {
@@ -38,6 +40,11 @@ public class BoardMapperTest {
 		System.out.println(board);
 	}
 	
-	
+	@Test
+	void selectPage() {
+		PageHelper.startPage(1, 3);    	
+		var list = mapper.selectPage();
+		System.out.println(list.size());
+	}
 	
 }
