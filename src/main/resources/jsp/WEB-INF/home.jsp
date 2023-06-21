@@ -49,8 +49,9 @@
 
 .login_box {
 	background-image:url("img/대례지볓빛.jpg");
-	border: 0.2px solid BurlyWood;
-	border-radius: 5px;
+	border: 0.2px ridge BurlyWood;
+	border-radius: 15px;
+	height: 250px;
 	opacity: 0.7;
 }
 
@@ -58,40 +59,86 @@
 	background-image: url("img/대례지눈.jpg");
 }
 
+.logout_box {
+	background-color: #DCDCDC;
+	text-align: right;
+	height: 200px;
+	border-radius: 8px;
+	opacity: 0.8;
+}
+
+
+
 .login_font {
-	font-size: 26px;
-	text-align: center;
+    font-family: 'Gaegu', cursive;
+	font-size: 28px;
+	text-align: auto;
 	padding: 30px 10px 10px 10px;
+}
+
+.logout_font {
+	font-size: 15px;
+}
+
+.homename {
+	font-family: 'Gaegu', cursive;
+	font-size: 25px;
+}
+
+.homename_menebar {
+	font-family: 'Gaegu', cursive;
+	font-size: 21px;
+	font-weight: bold;
+
+}
+
+
+.login_id {
+	font-family: 'Gaegu', cursive;
+	font-size: 25px;
+	text-align: center;
+	padding: 10px;
+
 }
 
 .login_button {
 	text-align: center;
-	width: 90%;
-	padding: 10px;
+	width: 100%;
+	padding-top: 10px;
 }
 
+.logout_button {
+	text-align: center;
+	padding-top: 20px;
+
+}
 
 .login_create{
 	font-family: 'East Sea Dokdo', cursive;
-	font-size: 25px;
+	font-size: 22px;
 	text-align: center;
-	text-decoration: none;
-	padding: 30px 10px 10px 10px;
+    text-decoration: none;
+	padding: 10px 0px 0px 15px;
 }
 
 
 .footer {
-  background-color: #0099cc;
+  height: 4rem;
   color: #ffffff;
+  background-color: #A9A9A9;
+  font-size: 15px;
   text-align: center;
-  font-size: 12px;
-  padding: 15px;
+  padding: 20px;
+  position:fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 9999;
 }
 
 </style>
 
 </head>
-<body class="back">
+<body class="back" style="height: 1200px;">
 
 	<div class="container-fluid topback">
 		<div class="row">
@@ -112,7 +159,7 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse container" id="#mynavbar">
-				<ul class="navbar-nav me-auto">
+				<ul class="navbar-nav me-auto homename_menebar">
 					<li class="nav-item">
 						<a class="nav-link" href="/information/testschedule">시험일정</a></li>
 					<li class="nav-item dropdown">
@@ -134,7 +181,7 @@
 						</ul></li>
 					<li class="nav-item"><a class="nav-link" href="#">위인</a></li>	
 					<li class="nav-item"><a class="nav-link" href="/board/list">게시판</a></li>	
-					<li class="nav-item"><a class="nav-link" href="#">고객지원</a></li>	
+					<li class="nav-item"><a class="nav-link" href="/city/page/1/10">세계도시</a></li>	
 					<li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>	
 				</ul>
 				<form class="d-flex">
@@ -145,9 +192,11 @@
 		</div>
 	</nav>
 
-
 	<div class="container mt-5">
 		<div class="row">
+			
+			<div class="col-sm-1"></div>
+			
 			<!-- Carousel -->
 			<div id="demo" class="carousel slide col-sm-7" data-bs-ride="carousel">
 
@@ -161,20 +210,20 @@
 
 				<!-- The slideshow/carousel -->
 				<div class="carousel-inner">
+					<div class="carousel-item">
+						<img src="/img/조선신윤복.jpg" alt="조선신윤복" class="d-block"
+							style="width: 800px; height: 300px;">
+						<p>조선 신윤복</p>
+					</div>
 					<div class="carousel-item active">
-						<img src="img/고구려_수렵도.jpg" alt="고구려_수렵도" class="d-block"
+						<img src="/img/고구려_수렵도.jpg" alt="고구려_수렵도" class="d-block"
 							style="width: 800px; height: 300px;">
 							<p>고구려 수렵도</p>
 					</div>
 					<div class="carousel-item">
-						<img src="img/작호도.jpg" alt="작호도" class="d-block"
+						<img src="/img/작호도.jpg" alt="작호도" class="d-block"
 							style="width: 800px; height: 300px;">
 							<p>작호도</p>
-					</div>
-					<div class="carousel-item">
-						<img src="img/조선신윤복.jpg" alt="조선신윤복" class="d-block"
-							style="width: 800px; height: 300px;">
-						<p>조선 신윤복</p>
 					</div>
 				</div>
 
@@ -189,31 +238,46 @@
 				</button>
 			</div>
 
-			<div class="col-sm-2"></div>
+			<div class="col-sm-1"></div>
 
-			<!-- 로그인 -->
+			<!-- 비회원 -->
 			
-			<div class=" col-sm-3 login_box">
-				<p class="login_font">더 안전하고 편리하게 이용하세요 :)</p>
-				<div class="container text-center">
-					<sec:authorize access="isAnonymous()">
-					<a href="/user/login"><button type="button" class="btn btn-secondary login_button">로그인</button></a>
+			<sec:authorize access="isAnonymous()">
+				<div class="col-sm-3 login_box">
+					<p class="login_font">더 안전하고 편리하게 이용하세요 :)</p>
+					<div class="">
+						<a href="/user/login"><button type="button" class="btn btn-secondary login_button">로그인</button></a>
+					</div>
+					<br>
+					<div>
+					<a class="login_create" href="#">아이디 찾기</a>
+					<a class="login_create" href="#">비밀번호 찾기</a>
+					<a class="login_create" href="/user/create">회원가입</a>
+					</div>
+				</div>
+			</sec:authorize>
+			
+					
+			<!-- 로그인 성공 -->
+			<div class="container col-sm-3 logout_box">
+				<div style="padding-top: 15px">
+					<sec:authorize access="isAuthenticated()">
+						<span class="login_id">
+							"<sec:authentication property="name"/>"
+						</span>
+						<span>님</span>
+						<span class="homename">나랏말싸미</span>에
+						<br>
+						<span class="logout_font">오신것을 환영합니다.</span> 
+						<div class="container logout_button">
+							<a href="#"><button type="button" class="btn btn-secondary">마이페이지</button></a>
+							<a href="/user/logout"><button type="button" class="btn btn-secondary">logout</button></a>
+						</div>
 					</sec:authorize>
 				</div>
-				<br>
-				<div class="login_create">
-				<a href="#">아이디 찾기</a>
-				<a href="#">비밀번호 찾기</a>
-				<a href="/user/create">회원가입</a>
-				</div>
 			</div>
-			<div>
-			<sec:authorize access="isAuthenticated()">
-				<sec:authentication property="name" /> 님 환영합니다.
-				<a href="/user/logout">/user/logout</a>
-			</sec:authorize>
-			</div>
-		
+					
+			
 		</div>
 	</div>
 
@@ -222,7 +286,9 @@
 	  <p>중국으로부터 유래되어 주로 먹, 안료로종이에 그리는 전통적인 양식의 회화를 동양화 한국화라고 지칭합니다.</p>
 	</div>
 
-			
+	<footer class="footer col-sm-12">
+		<p>© 2023 Mui Developer | Design By Mui</p>
+	</footer>		
 	
 
 </body>

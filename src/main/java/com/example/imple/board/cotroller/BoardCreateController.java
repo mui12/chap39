@@ -59,9 +59,7 @@ public class BoardCreateController implements CreateController<BoardDTO>{
 		    return "redirect:/board/success?create"; 
 		}
 			
-		dto.setBno(board.getBno());
-
-		return "redirect:/board/success?create";
+		return "redirect:/board/list?create";
 	}
 	
 	

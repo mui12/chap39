@@ -18,6 +18,11 @@
 <title>login.jsp</title>
 <style>
 
+.spacing {
+  margin: 0 10px; /* 좌우 여백 조정 */
+  text-decoration: none;
+}
+
 .back {
 	background: url("/img/로그인.jpg");
 	background-repeat: no-repeat;
@@ -40,6 +45,8 @@
 
 .padding {
 	padding: 10px;
+	text-align: center;
+	font-weight: board;
 }
 
 
@@ -51,22 +58,24 @@
 
 
 .footer {
-  height: 5rem;
+  height: 4rem;
   color: #ffffff;
   background-color: #A9A9A9;
   font-size: 15px;
   text-align: center;
+  padding: 20px;
   position: absolute;
   bottom: 0;
-  padding: 30px;
-  
+  left: 0;
+  width: 100%;
+  z-index: 9999;
 }
 
 
 </style>
 </head>
-<body class="back">
-	
+<body class="back" style="height: 900px;">
+
 	<!-- 홈으로 가기 그림 -->
 	<div class="container">
 		<a href="/" class="home_img"><img alt="" src="/img/나랏말싸미.jpg"></a>
@@ -96,7 +105,7 @@
 							<input type="password" class="form-control" name="password" value="${param.password}" placeholder="비밀번호"/>
 							<label>비밀번호</label>
 						</div>
-						<div class="padding">
+						<div style="padding: 10px;">
 							<input class="form-check-input" type="checkbox" name="remember-me"> 
 			            	<label class="form-check-label">로그인 상태 유지</label>
 						</div>
@@ -106,23 +115,24 @@
 					</form>
 				</section>
 				<div class="padding" >
-					<a> 비밀번호 찾기</a> <a>아이디 찾기</a> <a href="/user/create">회원가입</a>
+					<a  class="spacing"> 비밀번호 찾기</a> 
+					<a  class="spacing">아이디 찾기</a> 
+					<a  class="spacing" href="/user/create">회원가입</a>
 				</div>
 			</div>	
 		</div>
 	</div>
 	
+	<br>
+	<br>
+	<footer class="footer col-sm-12">
+		<p>© 2023 Mui Developer | Design By Mui</p>
+	</footer>
 
 	<!-- exception이 null이 아니면 (Boolean(X)) -->
 	<c:if test="${exception ne null}">
 		<div  class="alert alert-success">${exception.message}</div>
 	</c:if>
-	
-	
-	<footer class="footer col-sm-12">
-		<p>© 2023 Mui Developer | Design By Mui</p>
-	</footer>
-
 
 
 </body>

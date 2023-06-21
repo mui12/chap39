@@ -15,6 +15,7 @@ import com.example.imple.board.model.BoardDTO;
 import com.example.standard.controller.UpdateController;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
@@ -34,13 +35,19 @@ public class BoardUpdateController implements UpdateController<BoardDTO> {
 			session.removeAttribute("board");
 			session.removeAttribute("dto");
 		}
-
+		
+		var bno = request.getParameter("bno");
+		if (Objects.nonNull(bno)) {
+			var key = Integer.parseInt(bno);
+			var board = mapper.selectByBno(key);
+			model.addAttribute("board", board);
+		}
 	
 	
 	}
 
 	@Override
-	public String update(BoardDTO dto, BindingResult binding, Model model, HttpServletRequest request,
+	public String update(@Valid BoardDTO dto, BindingResult binding, Model model, HttpServletRequest request,
 			RedirectAttributes attr) {
 		
 		var session = request.getSession();

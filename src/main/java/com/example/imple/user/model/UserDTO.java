@@ -34,7 +34,6 @@ public class UserDTO implements Modelable<User> {
 	@Length (max = 8)
 	String    dob;
 	
-	@NonNull
 	Integer phone;
 	
 	String  email;
