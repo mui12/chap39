@@ -14,86 +14,83 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
-<title>게시판.jsp</title>
+<title>page.jsp</title>
 <style>
-.page {
-	text-align: center;
+
+.spacing{
+	text-decoration: none;
 }
 
-.h1 {
-	text-align: center;
-}
 </style>
 </head>
 <body>
- 	
- 	<h1 class="h1">
-		Board Page
+	<h1 class="h1">
+		City Page
 		<button type="button" class="btn btn-secondary btn-lg">${paging.pageNum}</button>
 	</h1>
 	<hr>
 	<a href="/"><button type="button" class="btn btn-outline-primary">Home</button></a>
 	<hr>
- 
- 	<!-- 	page table	 -->
+	
+	<menu class="btn-group">
+			<a href="/city/create" class="btn btn-primary">추가</a>
+	</menu>	
+
+
+	<!-- 	page table	 -->
 	<div class="container mt-5">
 		<table class="table table-primary table-striped table-hover page">
 			<thead>
-				<tr align="center">
-					<th>번호</th>
-					<th>아이디</th>
-					<th>제목</th>
-					<th>작성일</th>
-					<th>조회수</th>
+				<tr>
+					<th>id</th>
+					<th>name</th>
+					<th>countryCode</th>
+					<th>district</th>
+					<th>population</th>
 				</tr>
 			</thead>
 	
 			<tbody class="table-light">
 				<c:forEach var="e" items="${list}">
 					<tr>
-						<td>${e.bno}</td>
-						<td>${e.id}</td>
-						<td>${e.subject}</td>
-						<td>${e.created}</td>
-						<td>${e.hitcount}</td>
+						<td><a class="spacing" href="/city/detail/${e.id}">${e.id}</a></td>
+						<td><a class="spacing" href="/city/detail/${e.id}">${e.name}</a></td>
+						<td><a class="spacing" href="/city/detail/${e.id}">${e.countryCode}</a></td>
+						<td><a class="spacing" href="/city/detail/${e.id}">${e.district}</a></td>
+						<td align="right"><fmt:formatNumber pattern="###,###,###,###"
+								value="${e.population}" /></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
- 	
- 	<!-- 	pagenation	 -->
+
+	<!-- 	pagenation	 -->
 	<ul class="pagination justify-content-center" style="margin: 20px 0">
 		<li class="page-item disabled"><a class="page-link"
-			href="/board/page/${paging.navigateFirstPage-1}/${paging.pageSize}">Previous</a></li>
+			href="/city/page/${paging.navigateFirstPage-1}/${paging.pageSize}">Previous</a></li>
 		
 		<c:forEach var="n" items="${paging.navigatepageNums}">
 			<c:choose>
 				<c:when test="${n eq paging.pageNum}">
 					<li class="page-item active"><a
-						href="/board/page/${n}/${paging.pageSize}"
+						href="/city/page/${n}/${paging.pageSize}"
 						class="page-link">${n}</a></li>
 				</c:when>
 				<c:when test="${n ne paging.pageNum}">
 					<li class="page-item       "><a
-						href="/board/page/${n}/${paging.pageSize}"
+						href="/city/page/${n}/${paging.pageSize}"
 						class="page-link">${n}</a></li>
 				</c:when>
 			</c:choose>
 		</c:forEach>
 		<li class="page-item"><a class="page-link"
-			href="/board/page/${paging.navigateLastPage+1}/${paging.pageSize}">Next</a></li>
+			href="/city/page/${paging.navigateLastPage+1}/${paging.pageSize}">Next</a></li>
 	</ul>
 	</section>
 	<hr>
-		
 	
-	<!-- 버튼 -->
-	
-	<menu class="btn-group">
-			<a href="/board/create" class="btn btn-primary">글쓰기</a>
-	</menu>
-	
+
 </body>
 </html>
 

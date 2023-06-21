@@ -114,16 +114,27 @@
 	border-radius: 15px;
 }
 
+.font_requestinf {
+	font-size: 13px;
+	font-weight: bold;
+	text-align: right;
+	
+
+}
+
+
 .footer {
-  height: 5rem;
+  height: 4rem;
   color: #ffffff;
   background-color: #A9A9A9;
   font-size: 15px;
   text-align: center;
-  position: absolute;
+  padding: 20px;
+  position: relative;
   bottom: 0;
-  padding: 30px;
-  
+  left: 0;
+  width: 100%;
+  z-index: 9999;
 }
 
 
@@ -143,21 +154,22 @@
 					<a href="/" class="home_img"><img alt="나랏말싸미" src="/img/나랏말싸미.jpg"></a>
 				</div>
 				<form action="/user/create" method="post" class="line">
+					<p class="font_requestinf"> * 는 필수 입력 정보입니다.</p>
 					<div class="mb-3 user_img">
-						<input class="form-control" id="id" name="id" placeholder="아이디"/>
+						<input class="form-control" id="id" name="id" placeholder="아이디 *"/>
 					</div>
 					<div class="mb-3 lock_img">
-						<input class="form-control" id="password" name="password" placeholder="비밀번호"/>
+						<input class="form-control" id="password" name="password" placeholder="비밀번호 *"/>
 					</div>
 		
 					<div class="mb-3 user_img">
-						<input class="form-control" id="name" name="name" placeholder="이름"/>
+						<input class="form-control" id="name" name="name" placeholder="이름 *"/>
 					</div>	
 					<div class="mb-3 calendar_img">
-						<input class="form-control" id="dob" name="dob" placeholder="생년월일 8자리"/>
+						<input class="form-control" id="dob" name="dob" placeholder="생년월일 8자리 *"/>
 					</div>	
 					<div class="mb-3 phone_img">
-						<input class="form-control" type="tel" id="phone" name="phone" placeholder="전화번호" maxlength="13"/>
+						<input class="form-control" type="tel" id="phone" name="phone" placeholder="전화번호 " maxlength="13"/>
 					</div>	
 					<div class="mb-3 email_img">
 						<input class="form-control" type="email" id="email" name="email" placeholder="이메일"/>
@@ -245,8 +257,6 @@
 	</script>
 
 	<c:if test="${binding.hasErrors()}">
-		<h2>Error Massage</h2>
-		<hr>
 		<c:forEach var="g" items="${binding.globalErrors}">
 			<div>${g.code} ${g.defaultMessage}</div>
 		</c:forEach>
@@ -255,6 +265,25 @@
 			<div>${f.field} ${f.defaultMessage}</div>
 		</c:forEach>
 	</c:if>
+	
+	
+<!-- 	<script type="text/javascript"> -->
+//     var result ='${msg}';
+    
+//     if(result == '성공'){
+//         alert(result+'입니다.');
+//     }else{
+//         alert(result+'게시판등록 실패입니다.');
+//     }
+<!--     </script> -->
+	
+	
+	
+	
+	
+	<br>
+	<br>
+	<br>
 	
 	<footer class="footer col-sm-12">
 		<p>© 2023 Mui Developer | Design By Mui</p>

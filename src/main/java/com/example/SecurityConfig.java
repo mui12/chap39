@@ -40,6 +40,13 @@ public class SecurityConfig {
 			request.requestMatchers("/user/create/**").permitAll();   
 			request.requestMatchers("/user/success/**").permitAll();   
 			
+			request.requestMatchers("/city/list","/city/page/**").permitAll(); 
+			request.requestMatchers("/city/create",
+					                "/city/update",
+					                "/city/datail",
+					                "/city/success",
+					                "/city/delete").hasAnyRole("USER","ADMIN");
+			
 			request.requestMatchers("/board/list", "/board/page").permitAll();   
 			request.requestMatchers("/information/**").permitAll();   
 			
@@ -49,8 +56,8 @@ public class SecurityConfig {
 								    "/board/success/**",
 								    "/board/delete/**").hasAnyRole("USER","ADMIN");
 			
-			request.anyRequest().anonymous();  
-//			request.anyRequest().authenticated();  
+//			request.anyRequest().anonymous();  
+			request.anyRequest().authenticated();  
 		});
 		
 		http.formLogin(login -> {

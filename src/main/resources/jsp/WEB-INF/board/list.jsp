@@ -14,6 +14,15 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+
+<!-- Gaegu -->
+<link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+
+
 <title>게시판.jsp</title>
 <style>
 .page {
@@ -23,78 +32,204 @@
 .h1 {
 	text-align: center;
 }
+
+.spacing {
+  text-decoration: none;
+}
+
+
+.back {
+	background: url("/img/대례지화이트.jpg");
+}
+
+.topback {
+	height: 250px;
+	background: url("/img/home_top.jpg") no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.topfont {
+	font-family: 'Gaegu', cursive;
+	font-size: 70px;
+	text-align: center;
+	padding-top: 40px;
+}
+
+.top_button_location {
+	text-align: right;
+	padding-top: 15px;
+	padding-right: 25px;
+}
+
+.top_button {
+	color: white;
+	font-size: 18px;
+}
+
+.homename_menebar {
+	font-family: 'Gaegu', cursive;
+	font-size: 21px;
+	font-weight: bold;
+}
+
+.font_writing_button {
+	text-align: right;
+	margin-bottom: -35px;
+
+}
+
+
+.footer {
+  height: 4rem;
+  color: #ffffff;
+  background-color: #A9A9A9;
+  font-size: 15px;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+
+
 </style>
 </head>
 <body>
+ 	
+ 	<div class="container-fluid topback">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="top_button_location">
+					<a href="/"><button type="button" class="btn btn-outline-white top_button">Home</button></a>
+					<a href="/user/logout"><button type="button" class="btn btn-outline-black top_button">logout</button></a>
+				</div>
+				<h1 class="topfont">나랏말싸미</h1>
+			</div>
+		</div>
+	</div>
+	
+	<!--	 메뉴바	 -->
+	<nav class="navbar navbar-expand-sm navbar-light bg-Secondary">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/"> 
+				<img src="/img/데니태극기.jpg"  alt="" style="width: 40px;" class="rounded-pill">
+			</a>
+
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse container" id="#mynavbar">
+				<ul class="navbar-nav me-auto homename_menebar">
+					<li class="nav-item">
+						<a class="nav-link" href="/information/testschedule">시험일정</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">한국사</a>
+						<ul class="dropdown-menu">
+							<li><h5 class="dropdown-header">고대</h5></li>
+							<li><a class="dropdown-item" href="#">삼국사기</a></li>
+							<li><a class="dropdown-item" href="#">삼국유사</a></li>
+							<li><h5 class="dropdown-header">고려시대</h5></li>
+							<li><a class="dropdown-item" href="#">고려사</a></li>
+							<li><a class="dropdown-item" href="#">제왕운기</a></li>
+							<li><h5 class="dropdown-header">조선</h5></li>
+							<li><a class="dropdown-item" href="#">조선 전기</a></li>
+							<li><a class="dropdown-item" href="#">조선 후기</a></li>
+							<li><h5 class="dropdown-header">근현대사</h5></li>
+							<li><a class="dropdown-item" href="#">대한제국</a></li>
+							<li><a class="dropdown-item" href="#">일제강점기</a></li>
+							<li><a class="dropdown-item" href="#">대한민국</a></li>
+						</ul></li>
+					<li class="nav-item"><a class="nav-link" href="#">위인</a></li>	
+					<li class="nav-item"><a class="nav-link" href="/board/list">게시판</a></li>	
+					<li class="nav-item"><a class="nav-link" href="/city/page/1/10">세계도시</a></li>	
+					<li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>	
+				</ul>
+				<form class="d-flex">
+					<input class="form-control me-2" type="text" placeholder="Search">
+        			<button class="btn btn-primary" type="button">Search</button>
+				</form>
+				
+				
+			</div>
+		</div>
+	</nav>
  
+ 
+	<!--  게시판 List -->
+ 
+ 	<hr>
 	<h1 class="h1">
-		Board Page
 		<button type="button" class="btn btn-secondary btn-lg">${paging.pageNum}</button>
 	</h1>
-	<hr>
-	<a href="/"><button type="button" class="btn btn-outline-primary">Home</button></a>
-	<hr>
- 
- 	<!-- 	page table	 -->
-	<div class="container mt-5">
-		<table class="table table-primary table-striped table-hover page">
-			<thead>
-				<tr align="center">
-					<th>번호</th>
-					<th>아이디</th>
-					<th>제목</th>
-					<th>작성일</th>
-					<th>조회수</th>
-				</tr>
-			</thead>
-	
-			<tbody class="table-light">
-				<c:forEach var="e" items="${list}">
-					<tr>
-						<td><a href="/board/detail?bno=${e.bno}">${e.bno}</a></td>
-						<td><a href="/board/detail?bno=${e.bno}">${e.id}</a></td>
-						<td><a href="/board/detail?bno=${e.bno}">${e.subject}</a></td>
-						<td>${e.created}</td>
-						<td>${e.hitcount}</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</div>
  	
- 	<!-- 	pagenation	 -->
-	<ul class="pagination justify-content-center" style="margin: 20px 0">
-		<li class="page-item disabled"><a class="page-link"
-			href="/board/list/${paging.navigateFirstPage-1}/${paging.pageSize}">Previous</a></li>
-
-		<c:forEach var="n" items="${paging.navigatepageNums}">
-			<c:choose>
-				<c:when test="${n eq paging.pageNum}">
-					<li class="page-item active"><a
-						href="/board/list/${n}/${paging.pageSize}"
-						class="page-link">${n}</a></li>
-				</c:when>
-				<c:when test="${n ne paging.pageNum}">
-					<li class="page-item       "><a
-						href="/board/link/${n}/${paging.pageSize}"
-						class="page-link">${n}</a></li>
-				</c:when>
-			</c:choose>
-		</c:forEach>
-		<li class="page-item"><a class="page-link"
-			href="/board/page/${paging.navigateLastPage+1}/${paging.pageSize}">Next</a></li>
-	</ul>
-	</section>
-	<hr>
-		
-	
-	<!-- 버튼 -->
-	
-	<menu class="btn-group">
+ 	
+ 	<section class="container">
+ 	
+		<!-- 글쓰기 버튼 -->
+		<div class="font_writing_button col-sm-12">
 			<a href="/board/create" class="btn btn-primary">글쓰기</a>
-	</menu>
+		</div>
+		
+	 	<!-- 	page table	 -->
+		<div class="container mt-5">
+			<table class="table table-primary table-striped table-hover page">
+				<thead>
+					<tr align="center">
+						<th>번호</th>
+						<th>아이디</th>
+						<th>제목</th>
+						<th>작성일</th>
+						<th>조회수</th>
+					</tr>
+				</thead>
+		
+				<tbody class="table-light">
+					<c:forEach var="e" items="${list}">
+						<tr>
+							<td><a class="spacing" href="/board/detail?bno=${e.bno}">${e.bno}</a></td>
+							<td><a class="spacing" href="/board/detail?bno=${e.bno}">${e.id}</a></td>
+							<td><a class="spacing" href="/board/detail?bno=${e.bno}">${e.subject}</a></td>
+							<td>${board.created}</td>
+							<td>${board.hitcount}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	 	
+	 	<!-- 	pagenation	 -->
+	 	<section>
+			<ul class="pagination justify-content-center" style="margin: 20px 0">
+				<li class="page-item disabled"><a class="page-link"
+					href="/board/list/${paging.navigateFirstPage-1}/${paging.pageSize}">Previous</a></li>
+		
+				<c:forEach var="n" items="${paging.navigatepageNums}">
+					<c:choose>
+						<c:when test="${n eq paging.pageNum}">
+							<li class="page-item active"><a
+								href="/board/list/${n}/${paging.pageSize}"
+								class="page-link">${n}</a></li>
+						</c:when>
+						<c:when test="${n ne paging.pageNum}">
+							<li class="page-item       "><a
+								href="/board/link/${n}/${paging.pageSize}"
+								class="page-link">${n}</a></li>
+						</c:when>
+					</c:choose>
+				</c:forEach>
+				<li class="page-item"><a class="page-link"
+					href="/board/page/${paging.navigateLastPage+1}/${paging.pageSize}">Next</a></li>
+			</ul>
+		</section>
+ 	</section>
 	
-	
+	<footer class="footer col-sm-12">
+		<p>© 2023 Mui Developer | Design By Mui</p>
+	</footer>
 	
 </body>
 </html>
