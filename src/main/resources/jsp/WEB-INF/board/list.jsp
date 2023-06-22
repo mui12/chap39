@@ -17,29 +17,42 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
-
-<!-- Gaegu -->
+<!-- Gaegu font -->
 <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+<!-- Yeon Sung font -->
+<link href="https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap" rel="stylesheet">
 
 
 <title>게시판.jsp</title>
 <style>
-.page {
-	text-align: center;
+
+a {	
+	font-family: 'Yeon Sung', cursive;
+	font-size: 18px;
+    color: black;
 }
 
-.h1 {
-	text-align: center;
+body {
+	background: url("/img/대례지화이트.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .spacing {
   text-decoration: none;
 }
 
+.page {
+	text-align: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 
-.back {
-	background: url("/img/대례지화이트.jpg");
+.h1 {
+	font-family: 'Yeon Sung', cursive;
+	font-size: 50px;
+	text-align: center;
+	padding: 20px;
 }
 
 .topback {
@@ -74,11 +87,24 @@
 }
 
 .font_writing_button {
-	text-align: right;
-	margin-bottom: -35px;
+	font-family: 'Yeon Sung', cursive;
+	font-size: 24px;
+	border-radius: 5px;
+	text-align: center;
+	padding: 10px;
+	margin-top: 20px;
 
 }
 
+.board_title_font {
+	font-family: 'Yeon Sung', cursive;
+	font-size: 22px;
+}
+
+
+.table_line{
+	background-color:#D3D3D3; 
+}
 
 .footer {
   height: 4rem;
@@ -87,7 +113,7 @@
   font-size: 15px;
   text-align: center;
   padding: 20px;
-  position: relative;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -107,7 +133,7 @@
 					<a href="/"><button type="button" class="btn btn-outline-white top_button">Home</button></a>
 					<a href="/user/logout"><button type="button" class="btn btn-outline-black top_button">logout</button></a>
 				</div>
-				<h1 class="topfont">나랏말싸미</h1>
+				<a href="/" style="text-decoration: none;"><h1 class="topfont">나랏말싸미</h1></a>
 			</div>
 		</div>
 	</div>
@@ -161,24 +187,25 @@
  
 	<!--  게시판 List -->
  
- 	<hr>
 	<h1 class="h1">
+		게시판
 		<button type="button" class="btn btn-secondary btn-lg">${paging.pageNum}</button>
 	</h1>
  	
  	
  	<section class="container">
- 	
+ 		<hr>
 		<!-- 글쓰기 버튼 -->
-		<div class="font_writing_button col-sm-12">
-			<a href="/board/create" class="btn btn-primary">글쓰기</a>
+		<div class="col-sm-12">
+			<a href="/board/create"><button type="button" class="font_writing_button">글쓰기</button></a>
 		</div>
 		
 	 	<!-- 	page table	 -->
-		<div class="container mt-5">
-			<table class="table table-primary table-striped table-hover page">
+		<div class="container mt-5 page" >
+			<table class="table table-bordered table-hover table_line">
 				<thead>
-					<tr align="center">
+					<tr class="board_title_font">
+						<!-- <tr align="center"> -->
 						<th>번호</th>
 						<th>아이디</th>
 						<th>제목</th>
@@ -226,6 +253,12 @@
 			</ul>
 		</section>
  	</section>
+ 	
+ 	<br>
+ 	<br>
+ 	<br>
+ 	<br>
+ 	<br>
 	
 	<footer class="footer col-sm-12">
 		<p>© 2023 Mui Developer | Design By Mui</p>

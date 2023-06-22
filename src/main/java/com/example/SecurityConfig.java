@@ -40,7 +40,7 @@ public class SecurityConfig {
 			request.requestMatchers("/user/create/**").permitAll();   
 			request.requestMatchers("/user/success/**").permitAll();   
 			
-			request.requestMatchers("/city/list","/city/page/**").permitAll(); 
+			request.requestMatchers("/city/list**","/city/page/**").permitAll(); 
 			request.requestMatchers("/city/create",
 					                "/city/update",
 					                "/city/datail",
@@ -51,10 +51,10 @@ public class SecurityConfig {
 			request.requestMatchers("/information/**").permitAll();   
 			
 			request.requestMatchers("/board/create/**",
-								    "/board/update/**",
-								    "/board/detail/**",
+								    "/board/update?**",
+								    "/board/detail?**",
 								    "/board/success/**",
-								    "/board/delete/**").hasAnyRole("USER","ADMIN");
+								    "/board/delete?**").hasAnyRole("USER","ADMIN");
 			
 //			request.anyRequest().anonymous();  
 			request.anyRequest().authenticated();  

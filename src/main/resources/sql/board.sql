@@ -45,3 +45,7 @@ VALUES (4, 'sara234', 'password4', 'Hello everyone!', 'Just wanted to say hello 
 INSERT INTO board (bno, id, pwd, email, subject, content)
 VALUES (5, 'mike567', 'password5', 'mike@example.com', 'Issue with the website', 'I am experiencing some issues with the website. Is anyone else facing the same problem?');
 
+ALTER TABLE Board
+ADD CONSTRAINT fk_board_user_id
+FOREIGN KEY (id)
+REFERENCES Users (id);

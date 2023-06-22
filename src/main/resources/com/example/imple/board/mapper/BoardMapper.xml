@@ -59,7 +59,7 @@
 		   set 
 			   email   = #{email,   jdbcType=VARCHAR}, 
 			   subject = #{subject, jdbcType=VARCHAR}, 
-			   content = #{content, jdbcType=VARCHAR}, 
+			   content = #{content, jdbcType=VARCHAR} 
 		 where bno     = #{bno} 
 	</update>
 	

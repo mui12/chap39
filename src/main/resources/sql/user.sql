@@ -26,7 +26,7 @@ CREATE TABLE users (
     email    VARCHAR2(50),
     role     VARCHAR2(20  CHAR),
     
-    CONSTRAINT pk_user_id PRIMARY KEY (id)
+    CONSTRAINT pk_users_id PRIMARY KEY (id)
 );
 
 
@@ -42,19 +42,36 @@ ADD (name VARCHAR2(20),
 -- python, $2a$10$qVHhayvRFvUvNd7043/mgeJbNj8IpJEa.O0PqLVS8GPIHyyy.NrfC, USER
 -- java, $2a$10$qVHhayvRFvUvNd7043/mgeJbNj8IpJEa.O0PqLVS8GPIHyyy.NrfC, ADMIN
 
-UPDATE user
+UPDATE users
 SET password = '$2a$10$qVHhayvRFvUvNd7043/mgeJbNj8IpJEa.O0PqLVS8GPIHyyy.NrfC'
 WHERE id = 'python';
 
-UPDATE user
+UPDATE users
 SET password = '$2a$10$qVHhayvRFvUvNd7043/mgeJbNj8IpJEa.O0PqLVS8GPIHyyy.NrfC'
 WHERE id = 'java';
 
 
 INSERT INTO users (id, password, name, dob, phone, email, role)
-VALUES ('python', '$2a$10$qVHhayvRFvUvNd7043/mgeJbNj8IpJEa.O0PqLVS8GPIHyyy.NrfC', 'John Doe', '19900101', 1234567890, 'john@example.com', 'user');
+VALUES ('python', '$2a$10$qVHhayvRFvUvNd7043/mgeJbNj8IpJEa.O0PqLVS8GPIHyyy.NrfC', 'John Doe', '19900101', 1234567890, 'john@example.com', 'USER');
 INSERT INTO users (id, password, name, dob, phone, email, role)
 VALUES ('java', '$2a$10$qVHhayvRFvUvNd7043/mgeJbNj8IpJEa.O0PqLVS8GPIHyyy.NrfC', 'John Doe', '19900101', 1234567890, 'john@example.com', 'ADMIN');
 INSERT INTO users (id, password, name, dob, phone, email, role)
-VALUES ('mui', '1234', 'mui', '19900101', 1234567890, 'john@example.com', 'user');
+VALUES ('mui', '1234', 'mui', '19900101', 1234567890, 'john@example.com', 'USER');
+
+select * from users;
+drop table users;
+
+commit;
+
+UPDATE users
+SET role = 'USER'
+WHERE id = 'mui';
+
+create table userss as select * from users WHERE 1=0;
+insert into userss SELECt * from users;
+RENAME userss to users;
+
+ALTER TABLE users
+ADD CONSTRAINT pk_table_name_id PRIMARY KEY (id);
+
 

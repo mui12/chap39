@@ -17,10 +17,10 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
-
 <!-- Gaegu font -->
 <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+<!-- Yeon Sung font -->
+<link href="https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap" rel="stylesheet">
 
 <title>update.jsp</title>
 <style>
@@ -32,6 +32,8 @@
 
 .back {
 	background: url("/img/대례지화이트.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .topback {
@@ -72,7 +74,8 @@
 }
 
 .font_board_write {
-	font-size: 30px;
+	font-family: 'Yeon Sung', cursive;
+	font-size: 50px;
 	margin-bottom: -40px;
 
 }
@@ -80,6 +83,23 @@
 .font_writing_button {
 	text-align: center;
 }
+
+.board_color {
+	background-color: #DCDCDC;
+	border: 2px solid #D3D3D3;
+}
+
+.board_font {
+	font-family: 'Yeon Sung', cursive;
+	font-size: 25px;
+	text-align: center;
+}
+
+.board_input_font {
+	font-family: 'Yeon Sung', cursive;
+	font-size: 20px;
+}
+
 
 .footer {
   height: 4rem;
@@ -97,7 +117,7 @@
 
 </style>
 </head>
-<body>
+<body class="back">
 	
 	<div class="container-fluid topback">
 		<div class="row">
@@ -165,27 +185,27 @@
 	<!--  게시판 입력 리스트 -->
 	<section class="container mt-5">
 		<div class="row">
-			<form action="/board/create" method="post">
+			<form action="/board/update" method="post">
 				<h3 class="font_board_write">ㆅ 게시글 수정</h3>
-				<table class="table table-bordered table-sm table-hover col-sm-9">
+				<table class="table table-bordered table-sm table-hover col-sm-9 board_color">
 					<tr>
-						<td>게시글 번호</td>
-						<td>
+						<td class="board_font">게시글 번호</td>
+						<td class="board_input_font">
 							<input id="bno"  name="bno" value="${board.bno}" disabled="disabled"/>
 							<input id="bno"  name="bno" value="${board.bno}" type="hidden"/>
 						</td>
 					</tr>
 					<tr>
-						<td>아이디</td>
-						<td>
+						<td class="board_font">아이디</td>
+						<td class="board_input_font">
 							<input id="id"  name="id" value="${board.id}" disabled="disabled"/>
 							<input id="id"  name="id" value="${board.id}" type="hidden"/>
 						</td>
 					</tr>
 					
 					<tr>
-						<td>비밀번호</td>
-						<td>
+						<td class="board_font">비밀번호</td>
+						<td class="board_input_font">
 							<input id="pwd"  name="pwd" value="${board.pwd}" disabled="disabled"/>
 							<input id="pwd"  name="pwd" value="${board.pwd}" type="hidden"/>
 						</td>
@@ -193,24 +213,24 @@
 					
 					<br>
 					<tr>
-						<td>e-mail</td>
-						<td>
+						<td class="board_font">e-mail</td>
+						<td class="board_input_font">
 							<input id="email"  name="email" value="${board.email}"/>
 						</td>
 					</tr>
 		
 					<br>
 					<tr>
-						<td>제목</td>
-						<td><input id="subject" name="subject" value="${board.subject}" /></td>
+						<td class="board_font">제목</td>
+						<td class="board_input_font"><input id="subject" name="subject" value="${board.subject}" /></td>
 					</tr>
 		
 					<br>
 					<tr>
-						<td colspan="2">내용</td>
+						<td colspan="2" class="board_font">내용</td>
 					</tr>
 					<tr>
-						<td colspan="2">
+						<td colspan="2" class="board_font">
 							<textarea rows="10" cols="100" name=content placeholder="내용 입력하세요." value="${board.content}"></textarea>
 						</td>
 					</tr>

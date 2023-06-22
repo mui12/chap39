@@ -17,13 +17,20 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
-
 <!-- Gaegu font -->
 <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+<!-- Yeon Sung font -->
+<link href="https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap" rel="stylesheet">
 
 <title>create.jsp</title>
 <style>
+
+body {
+	background: url("/img/대례지화이트.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 
 .spacing {
   text-decoration: none;
@@ -60,7 +67,7 @@
 }
 
 .homename_menebar {
-	font-family: 'Gaegu', cursive;
+	font-family: 'Yeon Sung', cursive;
 	font-size: 21px;
 	font-weight: bold;
 }
@@ -72,7 +79,8 @@
 }
 
 .font_board_write {
-	font-size: 30px;
+	font-family: 'Yeon Sung', cursive;
+	font-size: 50px;
 	margin-bottom: -40px;
 
 }
@@ -88,16 +96,32 @@
   font-size: 15px;
   text-align: center;
   padding: 20px;
-  position: relative;
+  position: fixed;
   bottom: 0;
-  left: 0;
   width: 100%;
   z-index: 9999;
 }
 
+.board_color {
+	background-color: #DCDCDC;
+	border: 2px solid #D3D3D3;
+}
+
+.board_font {
+	font-family: 'Yeon Sung', cursive;
+	font-size: 25px;
+	text-align: center;
+}
+
+.board_input_font {
+	font-family: 'Yeon Sung', cursive;
+	font-size: 20px;
+}
+
+
 </style>
 </head>
-<body>
+<body style="height: 1300px;">
 	
 	<div class="container-fluid topback">
 		<div class="row">
@@ -106,7 +130,7 @@
 					<a href="/"><button type="button" class="btn btn-outline-white top_button">Home</button></a>
 					<a href="/user/logout"><button type="button" class="btn btn-outline-black top_button">logout</button></a>
 				</div>
-				<h1 class="topfont">나랏말싸미</h1>
+				<a href="/" style="text-decoration: none; color: black;"><h1 class="topfont">나랏말싸미</h1></a>
 			</div>
 		</div>
 	</div>
@@ -167,42 +191,43 @@
 		<div class="row">
 			<form action="/board/create" method="post">
 				<h3 class="font_board_write">ㆅ 게시판 글쓰기</h3>
-				<table class="table table-bordered table-sm table-hover col-sm-9">
+				<table class="table table-bordered table-sm table-hover col-sm-9 board_color">
 					<tr>
-						<td>아이디</td>
-						<td>
+						<td class="board_font">아이디</td>
+						<td class="board_input_font">
 							<input id="id"  name="id" value="${board.id}"/>
 						</td>
 					</tr>
 					
 					<tr>
-						<td>비밀번호</td>
-						<td>
+						<td class="board_font">비밀번호</td>
+						<td class="board_input_font">
 							<input id="pwd"  name="pwd" value="${board.pwd}"/>
 						</td>
 					</tr>
 					
 					<br>
 					<tr>
-						<td>e-mail</td>
-						<td>
+						<td class="board_font">e-mail</td>
+						<td class="board_input_font">
 							<input id="email"  name="email" value="${board.email}"/>
 						</td>
 					</tr>
 		
 					<br>
 					<tr>
-						<td>제목</td>
-						<td><input id="subject" name="subject" value="${board.subject}" /></td>
+						<td class="board_font">제목</td>
+						<td class="board_input_font">
+							<input id="subject" name="subject" value="${board.subject}" /></td>
 					</tr>
 		
 					<br>
 					<tr>
-						<td colspan="2">내용</td>
+						<td colspan="2" class="board_font">내용</td>
 					</tr>
 					<tr>
-						<td colspan="2">
-							<textarea rows="10" cols="100" name=content placeholder="내용 입력하세요." value="${board.content}"></textarea>
+						<td colspan="2" class="board_font">
+							<textarea rows="10" cols=100 name=content placeholder="내용 입력하세요." value="${board.content}"></textarea>
 						</td>
 					</tr>
 					

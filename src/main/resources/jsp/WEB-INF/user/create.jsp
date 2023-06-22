@@ -185,6 +185,19 @@
 						<input class="form-control" type="text" id="sample6_detailAddress" placeholder="상세주소">
 					</div>
 					
+					<div>
+						<c:if test="${binding.hasErrors()}">
+							<c:forEach var="g" items="${binding.globalErrors}">
+								<div class="alert alert-secondary">${g.code}${g.defaultMessage}</div>
+							</c:forEach>
+							<hr>
+							<c:forEach var="f" items="${binding.fieldErrors}">
+								<div class="alert alert-secondary">${f.field}${f.defaultMessage}</div>
+							</c:forEach>
+						</c:if>
+					</div>
+
+
 					<!-- 회원가입 -->
 					<div class="create_btn">
 						<button type="submit" class="btn btn-primary btn-lg container">회원가입</button>
@@ -255,31 +268,6 @@
 		}
 		
 	</script>
-
-	<c:if test="${binding.hasErrors()}">
-		<c:forEach var="g" items="${binding.globalErrors}">
-			<div>${g.code} ${g.defaultMessage}</div>
-		</c:forEach>
-		<hr>
-		<c:forEach var="f" items="${binding.fieldErrors}">
-			<div>${f.field} ${f.defaultMessage}</div>
-		</c:forEach>
-	</c:if>
-	
-	
-<!-- 	<script type="text/javascript"> -->
-//     var result ='${msg}';
-    
-//     if(result == '성공'){
-//         alert(result+'입니다.');
-//     }else{
-//         alert(result+'게시판등록 실패입니다.');
-//     }
-<!--     </script> -->
-	
-	
-	
-	
 	
 	<br>
 	<br>
